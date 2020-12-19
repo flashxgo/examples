@@ -9,8 +9,8 @@ var engine *flashx.Engine
 
 func main() {
 	engine = &flashx.Engine{
-		URLs:                      []string{"http://localhost:4000"},
-		NumberOfRequestsPerSecond: 50,
+		URLs:                  []string{"http://localhost:4000", "http://localhost:5000"},
+		LoadBalancingStrategy: flashx.LeastConnections,
 	}
 	engine.Setup()
 	r := gin.Default()
